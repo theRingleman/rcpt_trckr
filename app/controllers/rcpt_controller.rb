@@ -1,0 +1,3 @@
+class RCPTController < ApplicationController
+
+end

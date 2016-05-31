@@ -1,5 +1,54 @@
 class UserController < ApplicationController
 
+  get "/signup" do
+    if logged_in?
+      redirect "/home"
+    else
+      erb :"user/signup"
+    end
+  end
 
+  get "/home" do
+    if logged_in?
+      @user = User.find_by_id(session[:user_id])
+      erb :"user/show"
+    else
+      redirect "/login"
+    end
+  end
+
+  get "/login" do
+    erb :"user/login"
+  end
+
+  get "/logout" do 
+    if logged_in?
+      session.destroy
+      redirect "/"
+    else
+      redirect "/login"
+    end
+  end
+
+  post "/signup" do
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect "/signup"
+    else
+      @user.save
+      session[:user_id] = @user.id
+      redirect "/home"
+    end
+  end
+
+  post "/login" do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect "/home"
+    else
+      redirect "/login"
+    end
+  end
 
 end

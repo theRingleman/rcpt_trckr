@@ -1,9 +1,23 @@
 <h1>Create a new Receipt</h1>
 
-<form action="/receipts/new">
+<form action="/receipts/new" method="post">
   
   <label for="receipt[store][name]">Store Name: </label>
-  <input type="text" name="receipt[store][name]">
+  <input type="text" name="store[name]">
   <br><br>
+
+  <label for="receipt[item_number]">Number of items purchased: </label>
+  <input type="number" name="receipt[number_of_items]" value="0">
+  <br><br>
+ 
+  <label for="receipt[date]">Date: </label>
+  <input type="date" name="receipt[date]">
+  <br><br>
+
+  <label for="receipt[total]">Total Purchase Amount: </label>
+  <input type="text" name="receipt[total]">
+  <br><br>
+
+  <input type="submit">
 
 </form>

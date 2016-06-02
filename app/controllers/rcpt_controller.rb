@@ -40,7 +40,11 @@ class RCPTController < ApplicationController
 
   post "/receipts/:id/items/new" do
     @receipt = Receipt.find_by_id(params[:id])
-    binding.pry
+    params[:item].each do |item|
+      new_item = Item.new(item)
+      new_item.receipt_id = @receipt.id
+      new_item.save
+    end
     redirect "/receipts"
   end
 

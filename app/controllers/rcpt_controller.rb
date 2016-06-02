@@ -22,7 +22,7 @@ class RCPTController < ApplicationController
     store = Store.find_or_create_by(name: params[:store][:name])
     @receipt = Receipt.new(params[:receipt])
     @receipt.user_id = session[:user_id]
-    @receipt.stores << store
+    @receipt.store_id = store.id
     @receipt.save
     redirect "/receipts"
   end

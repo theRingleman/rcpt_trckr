@@ -4,6 +4,7 @@ class RCPTController < ApplicationController
 
   get "/receipts" do
     redirect_if_not_logged_in
+    @receipts = Receipt.all
     erb :"receipt/index" 
   end 
 
@@ -21,6 +22,7 @@ class RCPTController < ApplicationController
     store = Store.find_or_create_by(name: params[:store][:name])
     @receipt = Receipt.new(params[:receipt])
     @receipt.user_id = session[:user_id]
+    @receipt.stores << store
     @receipt.save
     redirect "/receipts"
   end

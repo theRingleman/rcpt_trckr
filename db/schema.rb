@@ -11,34 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601182907) do
+ActiveRecord::Schema.define(version: 20160531160726) do
 
   create_table "items", force: :cascade do |t|
     t.string  "name"
     t.integer "price"
     t.integer "receipt_id"
-    t.integer "user_id"
   end
 
   create_table "receipts", force: :cascade do |t|
     t.string  "date"
     t.integer "user_id"
+    t.integer "store_id"
     t.integer "number_of_items"
     t.integer "total"
   end
 
   create_table "stores", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "user_receipts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "receipt_id"
-  end
-
-  create_table "user_stores", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "store_id"
   end
 
   create_table "users", force: :cascade do |t|

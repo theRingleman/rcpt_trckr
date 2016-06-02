@@ -24,6 +24,11 @@ class RCPTController < ApplicationController
     erb :"items/new"
   end
 
+  get "receipt/:id/items" do
+    redirect_if_not_logged_in
+    erb :"/items/show"
+  end
+
   post "/receipts/new" do
     store = Store.find_or_create_by(name: params[:store][:name])
     @receipt = Receipt.new(params[:receipt])

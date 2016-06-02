@@ -4,7 +4,7 @@ class RCPTController < ApplicationController
 
   get "/receipts" do
     redirect_if_not_logged_in
-    @receipts = Receipt.all
+    @receipts = User.find_by_id(session[:user_id]).receipts
     erb :"receipt/index" 
   end 
 
@@ -15,7 +15,13 @@ class RCPTController < ApplicationController
 
   get "/receipts/:id" do
     redirect_if_not_logged_in
+    @receipt = Receipt.find_by_id(params[:id])
     erb :"receipt/show"
+  end
+
+  get "/receipts/:id/items/new" do
+    @receipt = Receipt.find_by_id(params[:id])
+    erb :"items/new"
   end
 
   post "/receipts/new" do
@@ -24,6 +30,12 @@ class RCPTController < ApplicationController
     @receipt.user_id = session[:user_id]
     @receipt.store_id = store.id
     @receipt.save
+    redirect "/receipts/#{@receipt.id}/items/new"
+  end
+
+  post "/receipts/:id/items/new" do
+    @receipt = Receipt.find_by_id(params[:id])
+    binding.pry
     redirect "/receipts"
   end
 

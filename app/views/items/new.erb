@@ -1,0 +1,17 @@
+<h1>Add your items below: </h1>
+
+<form action="/receipts/<%= @receipt.id %>/items/new" method="post">
+  
+  <% @receipt.number_of_items.times do %>
+    <label for="item[name]">Name: </label>
+    <input type="text" name="item[name]">
+    <br><br>
+
+    <label for="item[price]">Price: </label>
+    <input type="text" name="item[price]">
+    <br><br>
+  <% end %>
+
+  <input type="submit">
+
+</form>

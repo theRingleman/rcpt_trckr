@@ -1,19 +1,28 @@
-<h1>Add your items below: </h1>
+<div class="container center">
+  <h1>Add your items below: </h1>
+</div>
 
-<form action="/receipts/<%= @receipt.id %>/items/new" method="post" class="container">
+<div class="container">
+  <div class="row">
+    <form action="/receipts/<%= @receipt.id %>/items/new" method="post" class="col s12">
 
-  <% @receipt.number_of_items.times do %>
-  
-    <label for="item[][name]">Name: </label>
-    <input type="text" name="item[][name]">
-    <br><br>
+      <% @receipt.number_of_items.times do %>
 
-    <label for="item[][price]">Price: </label>
-    <input type="text" name="item[][price]">
-    <br><br>
+        <div class="input-field col s6">
+          <label for="item[][name]">Name: </label>
+          <input type="text" name="item[][name]">
+        </div>
 
-  <% end %>
+        <div class="input-field col s6">
+          <label for="item[][price]">Price: </label>
+          <input type="text" name="item[][price]">
+        </div>
 
-  <input type="submit">
 
-</form>
+      <% end %>
+
+      <input type="submit" class="btn" value="Submit">
+
+    </form>
+  </div>
+</div>

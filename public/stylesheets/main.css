@@ -1,0 +1,17 @@
+h1 {
+  color: #fff;
+}
+
+label {
+  color: #fff;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border-bottom: 1px solid #fff;
+}
+
+input[type=text]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]) {
+  border-bottom: 1px solid #000;
+}

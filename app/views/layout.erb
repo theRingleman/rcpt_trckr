@@ -9,14 +9,16 @@
 </head>
 <body class="light-blue lighten-1">
 
-  <nav class="nav-wrapper orange lighten-2">
-    <a href="/home" class="brand-logo"><i class="material-icons left">receipt</i>RCPT</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/receipts">Receipts</a></li>
-      <li><a href="#">Stores</a></li>
-      <li><a href="#">Info</a></li>
-    </ul>
-  </nav>
+  <% if logged_in? %>
+    <nav class="nav-wrapper orange lighten-2">
+      <a href="/home" class="brand-logo"><i class="material-icons left">receipt</i>RCPT</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/receipts">Receipts</a></li>
+        <li><a href="#">Stores</a></li>
+        <li><a href="#">Info</a></li>
+      </ul>
+    </nav>
+  <% end %>
 
   <%=yield%>
 

@@ -14,4 +14,9 @@ class StoreController < ApplicationController
     erb :"stores/show"
   end
 
+  get "/stores/:id/delete" do
+    redirect_if_not_logged_in
+    erb :"/stores/delete"
+  end
+
 end

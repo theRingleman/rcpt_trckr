@@ -1,0 +1,11 @@
+<div class="container">
+
+  <h1><%= @store.name %></h1>
+
+  <ul>
+    <% @receipts.each do |receipt| %>
+      <li><%= receipt.created_at.strftime("%b. %d %Y") %> - $<%= receipt.total %></li>
+    <% end %>
+  </ul>
+
+</div>

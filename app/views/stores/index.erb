@@ -5,7 +5,7 @@
   <ul>
 
     <% @stores.each do |store| %>
-      <li><%= store.name %></li>
+      <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
     <% end %>
 
   </ul>

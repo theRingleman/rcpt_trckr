@@ -11,6 +11,10 @@ label {
   padding: 0 15px;
 }
 
+.store_card_link {
+  display: block;
+}
+
 input[type=text],
 input[type=email],
 input[type=password],

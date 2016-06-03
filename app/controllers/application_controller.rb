@@ -25,9 +25,8 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
-    def username
-      user = User.find_by_id(session[:user_id])
-      username = "#{user.first_name} #{user.last_name}"
+    def users_name
+      "#{current_user.first_name} #{current_user.last_name}"
     end
 
     def current_user

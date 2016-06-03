@@ -6,6 +6,7 @@ class CreateReceipts < ActiveRecord::Migration
       t.integer :store_id
       t.integer :number_of_items
       t.integer :total
+      t.timestamps
     end
   end
 end

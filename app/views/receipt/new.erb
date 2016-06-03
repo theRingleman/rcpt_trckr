@@ -1,23 +1,34 @@
-<h1>Create a new Receipt</h1>
+<div class="container center">
+  <h1>Create a new Receipt</h1>
+</div>
 
-<form action="/receipts/new" method="post" class="container">
-  
-  <label for="receipt[store][name]">Store Name: </label>
-  <input type="text" name="store[name]">
-  <br><br>
+<div class="container">
+  <div class="row">
+    <form action="/receipts/new" method="post" class="col s12">
 
-  <label for="receipt[item_number]">Number of items purchased: </label>
-  <input type="number" name="receipt[number_of_items]" value="0">
-  <br><br>
- 
-  <label for="receipt[date]">Date: </label>
-  <input type="date" name="receipt[date]">
-  <br><br>
+      <div class="input-field col s6">
+        <label for="receipt[store][name]">Store Name: </label>
+        <input type="text" name="store[name]" class="validate">
+      </div>
 
-  <label for="receipt[total]">Total Purchase Amount: </label>
-  <input type="text" name="receipt[total]">
-  <br><br>
+      <div class="input-field col s6">
+        <label for="receipt[item_number]">Number of items purchased: </label>
+        <input type="number" name="receipt[number_of_items]" class="validate">
+      </div>
 
-  <input type="submit">
+      <div class="col s6">
+        <label for="receipt[date]">Date: </label>
+        <input type="date" name="receipt[date]" class="validate">
+      </div>
 
-</form>
+      <div class="input-field col s6">
+        <label for="receipt[total]">Total Purchase Amount: </label>
+        <input type="text" name="receipt[total]">
+      </div>
+
+
+      <input type="submit" class="btn">
+
+    </form>
+  </div>
+</div>

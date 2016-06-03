@@ -20,11 +20,13 @@ ActiveRecord::Schema.define(version: 20160531160726) do
   end
 
   create_table "receipts", force: :cascade do |t|
-    t.string  "date"
-    t.integer "user_id"
-    t.integer "store_id"
-    t.integer "number_of_items"
-    t.integer "total"
+    t.string   "date"
+    t.integer  "user_id"
+    t.integer  "store_id"
+    t.integer  "number_of_items"
+    t.integer  "total"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "stores", force: :cascade do |t|

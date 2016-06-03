@@ -2,11 +2,16 @@ h1 {
   color: #fff;
 }
 
+.input-field label,
 label {
   color: #fff;
 }
 
-input[type=text], input[type=email], input[type=password] {
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+input[type=date] {
   border-bottom: 1px solid #fff;
 }
 

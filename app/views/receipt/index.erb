@@ -1,7 +1,9 @@
-<h1>Here is a list of all your current receipts.</h1>
+<div class="container">
+  <h1>Here is a list of all your current receipts.</h1>
 
-<ul>
-  <%@receipts.each do |receipt|%>
-    <li><%=receipt.store.name%> - $<%=receipt.total%> - <a href="/receipts/<%= receipt.id %>">View</a></li>
-  <%end%>
-</ul>
+  <ul>
+    <%@receipts.each do |receipt|%>
+      <li><%=receipt.store.name%> - $<%=receipt.total%> - <a href="/receipts/<%= receipt.id %>">View</a></li>
+    <%end%>
+  </ul>
+</div>

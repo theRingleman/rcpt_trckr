@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1>The Stores you frequent: </h1>
+
+  <ul>
+
+    <% @stores.each do |store| %>
+      <li><%= store.name %></li>
+    <% end %>
+
+  </ul>
+
+</div>

@@ -5,6 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
+use StoreController
 use UserController
-use RCPTController 
+use RCPTController
 run ApplicationController

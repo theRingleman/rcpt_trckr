@@ -22,7 +22,7 @@ class UserController < ApplicationController
     end
   end
 
-  get "/logout" do 
+  get "/logout" do
     if logged_in?
       session.destroy
       redirect "/"
@@ -32,7 +32,7 @@ class UserController < ApplicationController
   end
 
   post "/signup" do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(params)
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect "/signup"
     else

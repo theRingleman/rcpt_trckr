@@ -2,12 +2,18 @@
 
   <h1>The Stores you frequent: </h1>
 
-  <ul>
+  <div class="row">
 
     <% @stores.each do |store| %>
-      <li><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+      <div class="col s4">
+        <div class="card small">
+          <div class="card-content">
+            <span class="card-title"><a href="/stores/<%= store.id %>"><%= store.name %></a></span>
+          </div>
+        </div>
+      </div>
     <% end %>
 
-  </ul>
+  </div><!-- .row -->
 
-</div>
+</div><!-- .container -->

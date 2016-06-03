@@ -4,7 +4,7 @@
 
   <ul>
     <% @receipts.each do |receipt| %>
-      <li><%= receipt.created_at.strftime("%b. %d %Y") %> - $<%= receipt.total %></li>
+      <li><%= receipt.created_at.strftime("%b. %d %Y") %> - $<%= receipt.total %> - <a href="/receipts/<%= receipt.id %>"> View</a></li>
     <% end %>
   </ul>
 

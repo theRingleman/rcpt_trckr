@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  get '/' do 
+  get '/' do
     erb :index
   end
 
@@ -27,6 +27,10 @@ class ApplicationController < Sinatra::Base
 
     def current_user
       User.find(session[:user_id])
+    end
+
+    def edited_date(date)
+      date.strftime("%b. %d %Y")
     end
 
   end

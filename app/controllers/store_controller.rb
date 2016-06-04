@@ -16,7 +16,13 @@ class StoreController < ApplicationController
 
   get "/stores/:id/delete" do
     redirect_if_not_logged_in
-    erb :"/stores/delete"
+    erb :"stores/delete"
+  end
+
+  get "/stores/:id/edit" do
+    redirect_if_not_logged_in
+    @store = Store.find(params[:id])
+    erb :"stores/edit"
   end
 
 end

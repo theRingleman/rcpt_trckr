@@ -11,7 +11,7 @@ class UserController < ApplicationController
   get "/home" do
     redirect_if_not_logged_in
     @user = User.find_by_id(session[:user_id])
-    erb :"user/show"
+    erb :"user/index"
   end
 
   get "/login" do

@@ -25,4 +25,12 @@ class StoreController < ApplicationController
     erb :"stores/edit"
   end
 
+  post "/stores/:id/edit" do
+    redirect_if_not_logged_in
+    @store = Store.find(params[:id])
+    @store.update(name: params[:name])
+    @store.save
+    redirect "/stores"
+  end
+
 end

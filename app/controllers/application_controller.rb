@@ -37,6 +37,10 @@ class ApplicationController < Sinatra::Base
       date.strftime("%b. %d %Y")
     end
 
+    def recent_purchases
+      current_user.items.last(10)
+    end
+
   end
 
 end

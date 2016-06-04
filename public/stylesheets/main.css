@@ -15,6 +15,18 @@ label {
   display: block;
 }
 
+#recent_purchases {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+#welcome {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
 input[type=text],
 input[type=email],
 input[type=password],

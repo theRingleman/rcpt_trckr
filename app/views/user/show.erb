@@ -1,9 +1,31 @@
 <div class="container">
-  <h1>Welcome <%=@user.username%>!</h1>
 
-  <p><a href="/receipts">Click Here</a> to view your receipts.</p>
+  <div class="row">
 
-  <p><a href="/receipts/new">Click Here</a> to add a new receipt.</p>
+    <div class="col s7" id="welcome">
 
-  <p><a href="/logout">Logout</a></p>
-</div>
+      <h1>Welcome <%=@user.username%>!</h1>
+
+      <p><a href="/receipts">Click Here</a> to view your receipts.</p>
+
+      <p><a href="/receipts/new">Click Here</a> to add a new receipt.</p>
+
+      <p><a href="/logout">Logout</a></p>
+
+    </div><!-- col s8 -->
+
+    <div class="col s4 offset-s1" id="recent_purchases">
+
+      <h4>Recent Purchases</h4>
+
+      <ul>
+        <% recent_purchases.reverse.each do |item| %>
+          <li><%= item.name %> - <%= item.price %> - <a href="/receipts/<%= item.receipt.id %>">View</a></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </div><!-- .row -->
+
+</div><!-- .container -->

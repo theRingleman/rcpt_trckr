@@ -17,7 +17,7 @@
     <div class="col s4 offset-s1" id="recent_purchases">
 
       <h4>Recent Purchases</h4>
-
+      <!-- TODO If the array is empty display something that says suggests add their first receipt -->
       <ul>
         <% recent_purchases.reverse.each do |item| %>
           <li><%= item.name %> - <%= item.price %> - <a href="/receipts/<%= item.receipt.id %>">View</a></li>

@@ -3,7 +3,7 @@
 
   <ul>
     <% @receipt.items.each do |item| %>
-      <li><%= item.name %> - <%= item.price %></li>
+      <li><%= item.name %> - <%= item.price %> - <a href="/item/<%= item.id %>/edit">Edit</a></li>
     <% end %>
   </ul>
 </div>

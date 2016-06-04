@@ -1,4 +1,5 @@
 require "pry"
+# TODO Get rid of the receipt total section in the new-receipt form and add up all the items totals and make that the receipt total
 
 class RCPTController < ApplicationController
 
@@ -30,7 +31,7 @@ class RCPTController < ApplicationController
   end
 
   post "/receipts/new" do
-    store = Store.find_or_create_by(name: params[:store][:name].downcase.capitalize)
+    store = Store.find_or_create_by(name: capitalize_store_name(params[:store][:name]))
     @receipt = Receipt.new(params[:receipt])
     @receipt.user_id = session[:user_id]
     @receipt.store_id = store.id

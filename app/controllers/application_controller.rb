@@ -41,6 +41,10 @@ class ApplicationController < Sinatra::Base
       current_user.items.last(10)
     end
 
+    def capitalize_store_name(store_name)
+      store_name.split(" ").collect {|word| word.downcase.capitalize}.join(" ")
+    end
+
   end
 
 end

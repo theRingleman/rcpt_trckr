@@ -38,7 +38,7 @@ class StoreController < ApplicationController
     redirect_if_not_logged_in
     @store = Store.find(params[:id])
     @store.receipts.each {|receipt| receipt.items.each {|item| item.delete}}
-    @store.receipt.each {|receipt| receipt.delete}
+    @store.receipts.each {|receipt| receipt.delete}
     @store.delete
     redirect "/stores"
   end

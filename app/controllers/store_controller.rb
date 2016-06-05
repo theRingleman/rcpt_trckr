@@ -2,7 +2,7 @@ class StoreController < ApplicationController
 
   get "/stores" do
     redirect_if_not_logged_in
-    @user = User.find_by_id(session[:user_id])
+    @user = current_user
     @stores = @user.stores
     erb :"stores/index"
   end
@@ -37,6 +37,8 @@ class StoreController < ApplicationController
   post "/stores/:id/delete" do
     redirect_if_not_logged_in
     @store = Store.find(params[:id])
+    @store.receipts.each {|receipt| receipt.items.each {|item| item.delete}}
+    @store.receipt.each {|receipt| receipt.delete}
     @store.delete
     redirect "/stores"
   end

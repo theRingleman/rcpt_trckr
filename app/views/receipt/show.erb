@@ -6,4 +6,7 @@
       <li><%= item.name %> - <%= item.price %> - <a href="/item/<%= item.id %>/edit">Edit</a></li>
     <% end %>
   </ul>
+
+  <a href="/receipts/<%= @receipt.id %>/delete">Delete this Receipt</a>
+
 </div>

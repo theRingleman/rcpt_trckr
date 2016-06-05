@@ -1,0 +1,12 @@
+<div class="container">
+
+  <h1>Are you sure that you want to delete this receipt?</h1>
+  <h2>This will also delete your items.</h2>
+
+  <form action="/receipts/<%= @receipt.id %>/delete" method="post">
+    <input type="submit" class="btn-large yellow decision" value="Yes">
+  </form>
+
+  <h2><a href="/stores" class="btn-large yellow decision">No</a></h2>
+
+</div>

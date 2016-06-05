@@ -25,9 +25,15 @@ class RCPTController < ApplicationController
     erb :"items/new"
   end
 
-  get "receipt/:id/items" do
+  get "receipts/:id/items" do
     redirect_if_not_logged_in
     erb :"/items/show"
+  end
+
+  get "/receipts/:id/delete" do
+    redirect_if_not_logged_in
+    @receipt = Receipt.find(params[:id])
+    erb :"/receipt/delete"
   end
 
   post "/receipts/new" do
@@ -46,6 +52,14 @@ class RCPTController < ApplicationController
       new_item.receipt_id = @receipt.id
       new_item.save
     end
+    redirect "/receipts"
+  end
+
+  post "/receipts/:id/delete" do
+    redirect_if_not_logged_in
+    @receipt = Receipt.find(params[:id])
+    @receipt.items.each {|item| item.delete}
+    @receipt.delete
     redirect "/receipts"
   end
 

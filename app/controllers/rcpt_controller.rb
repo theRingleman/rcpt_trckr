@@ -1,5 +1,4 @@
 require "pry"
-# TODO Get rid of the receipt total section in the new-receipt form and add up all the items totals and make that the receipt total
 
 class RCPTController < ApplicationController
 

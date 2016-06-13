@@ -10,7 +10,7 @@ class RCPTController < ApplicationController
 
   get "/receipts/new" do
     redirect_if_not_logged_in
-    erb :"/receipt/new"
+    erb :"receipt/new"
   end
 
   get "/receipts/:id" do
@@ -26,22 +26,29 @@ class RCPTController < ApplicationController
 
   get "receipts/:id/items" do
     redirect_if_not_logged_in
-    erb :"/items/show"
+    erb :"items/show"
   end
 
   get "/receipts/:id/delete" do
     redirect_if_not_logged_in
     @receipt = Receipt.find(params[:id])
-    erb :"/receipt/delete"
+    erb :"receipt/delete"
   end
 
   post "/receipts/new" do
-    store = Store.find_or_create_by(name: capitalize_store_name(params[:store][:name]))
-    @receipt = Receipt.new(params[:receipt])
-    @receipt.user_id = session[:user_id]
-    @receipt.store_id = store.id
-    @receipt.save
-    redirect "/receipts/#{@receipt.id}/items/new"
+    # binding.pry
+    if params[:store][:name] == "" || params[:item_number] == ""
+      @error = "Sorry you missed something."
+      erb :"receipt/new"
+    else
+      store = Store.find_or_create_by(name: capitalize_store_name(params[:store][:name]))
+      @receipt = current_user.receipts.create(params[:receipt], store: store)
+      # @receipt = Receipt.new(params[:receipt])
+      # @receipt.user_id = session[:user_id]
+      # @receipt.store_id = store.id
+      # @receipt.save
+      # redirect "/receipts/#{@receipt.id}/items/new"
+    end
   end
 
   post "/receipts/:id/items/new" do

@@ -11,9 +11,9 @@ class UserController < ApplicationController
   get "/home" do
     @user = User.find_by_id(session[:user_id])
     if logged_in?
-      redirect "/home"
-    else
       erb :"user/index"
+    else
+      redirect "/login"
     end
 
   end
